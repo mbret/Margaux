@@ -8,9 +8,7 @@ import React, { Component } from 'react'
 import {
   AppRegistry,
   StyleSheet,
-  Text,
   View,
-  Button,
   Alert,
   Navigator,
   BackAndroid,
@@ -19,6 +17,18 @@ import {
 import IndexView from './src/index-view.android'
 import NewGameView from './src/new-game-view.android'
 import Second from './src/second.android'
+import {
+  Container,
+  Header,
+  Left,
+  Body,
+  Title,
+  Right,
+  Icon,
+  Button,
+  Content,
+  Text
+} from 'native-base'
 
 let _navigator
 
@@ -45,25 +55,37 @@ export default class Margaux extends Component {
     ]
 
     return (
-      <View style={{flex: 1}}>
-        <Text>Margaux app</Text>
-        <Navigator
-          style={{flex: 1}}
-          initialRoute={routes[1]}
-          initialRouteStack={routes}
-          renderScene={(route, navigator) => {
-            _navigator = navigator
-            switch (route.index) {
-              case 0:
-                return (<IndexView navigator={navigator} title={route.title} game={this.currentGame}/>)
-              case 1:
-                return (<NewGameView navigator={navigator} title={route.title} game={this.currentGame}/>)
-              case 2:
-                return (<Second navigator={navigator} title={route.title}/>)
-            }
-          }}
-        />
-      </View>
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name='menu'/>
+            </Button>
+          </Left>
+          <Body><Title>Margaux</Title></Body>
+          <Right/>
+        </Header>
+
+        <Content padder>
+          <Container>
+            <Navigator
+              initialRoute={routes[1]}
+              initialRouteStack={routes}
+              renderScene={(route, navigator) => {
+                _navigator = navigator
+                switch (route.index) {
+                  case 0:
+                    return (<IndexView navigator={navigator} title={route.title} game={this.currentGame}/>)
+                  case 1:
+                    return (<NewGameView navigator={navigator} title={route.title} game={this.currentGame}/>)
+                  case 2:
+                    return (<Second navigator={navigator} title={route.title}/>)
+                }
+              }}
+            />
+          </Container>
+        </Content>
+      </Container>
     )
   }
 }
