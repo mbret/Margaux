@@ -5,7 +5,7 @@ import {
 
 export default class GameSetup extends Component {
   static navigationOptions = {
-    title: 'GameSetup',
+    title: 'GameSetup'
   }
 
   render () {

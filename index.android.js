@@ -8,53 +8,63 @@ import React, { Component } from 'react'
 import {
   AppRegistry,
   StyleSheet,
-  Text,
-  View,
-  Button
+  View
 } from 'react-native'
+import {
+  Body,
+  Container,
+  Content,
+  Header,
+  Icon,
+  Left,
+  Right,
+  Title,
+  Button,
+  Text
+} from 'native-base'
 import { StackNavigator } from 'react-navigation'
 import GameSetup from './src/components/game-setup'
 
 class NewGame extends Component {
   static navigationOptions = {
-    title: 'Margaux',
+    title: 'Margaux'
   }
 
   render () {
     const {navigate} = this.props.navigation
     return (
-      <View>
-        <Button
-          onPress={() => navigate('GameSetup')}
-          title="New game"
-        />
-      </View>
+      <Container>
+        <Header>
+          <Left>
+            <Button transparent>
+              <Icon name='md-arrow-back'/>
+            </Button>
+          </Left>
+          <Body><Title>Margaux</Title></Body>
+          <Right/>
+        </Header>
+        <Content contentContainerStyle={{flex: 1, alignItems: 'center', justifyContent: 'center'}} padder>
+          <View style={styles.container}>
+            <Button large rounded onPress={() => navigate('GameSetup')}><Text>New game</Text></Button>
+          </View>
+        </Content>
+      </Container>
     )
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+    justifyContent: 'center'
+  }
 })
 
 const Margaux = StackNavigator({
   NewGame: {screen: NewGame},
   GameSetup: {screen: GameSetup}
+}, {
+  headerMode: 'none'
 })
 
 AppRegistry.registerComponent('Margaux', () => Margaux)
