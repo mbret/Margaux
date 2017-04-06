@@ -4,87 +4,41 @@
  * @flow
  */
 
-import React, { Component } from 'react';
-import {
-    AppRegistry,
-    StyleSheet,
-    Text,
-    View,
-    Button,
-    Alert,
-    Navigator,
-    BackAndroid,
-    TouchableHighlight
-} from 'react-native';
-import IndexView from "./src/index-view.android";
-import NewGameView from "./src/new-game-view.android";
-import Second from "./src/second.android";
+import React  from 'react';
+import { Provider } from "react-redux";
+import { createStore, applyMiddleware, combineReduxers, compose } from "redux";
+import thunkMiddleware from "redux-thunk";
+import { createLogger } from "redux-logger";
+import reducer from "./src/reducers";
+import AppContainer from "./src/containers/app-container";
+import { AppRegistry } from 'react-native';
 
-let _navigator;
+const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__});
 
-BackAndroid.addEventListener('hardwareBackPress', () => {
-    if (_navigator.getCurrentRoutes().length === 1  ) {
-        return false;
-    }
-    _navigator.pop();
-    return true;
-});
+function configureStore(initialState) {
+  const enhancer = compose(
+    applyMiddleware(
+      thunkMiddleware,
+      loggerMiddleware
+    )
+  );
 
-export default class Margaux extends Component {
-
-    constructor(props) {
-        super(props);
-        this.currentGame = {};
-    }
-
-    render() {
-        const routes = [
-            {title: 'First Scene', index: 0, component: IndexView},
-            {title: 'First Scene', index: 1, component: NewGameView},
-            {title: 'Second Scene', index: 2, component: Second},
-        ];
-
-        return (
-            <View style={{flex:1}}>
-                <Text>Margaux app</Text>
-                <Navigator
-                    style={{flex:1}}
-                    initialRoute={routes[1]}
-                    initialRouteStack={routes}
-                    renderScene={(route, navigator) => {
-                        _navigator = navigator;
-                        switch (route.index) {
-                            case 0:
-                                return (<IndexView navigator={navigator} title={route.title} game={this.currentGame} />);
-                            case 1:
-                                return (<NewGameView navigator={navigator} title={route.title} game={this.currentGame} />);
-                            case 2:
-                                return (<Second navigator={navigator} title={route.title} />);
-                        }
-                    }}
-                />
-            </View>
-        );
-  }
+  return createStore(reducer, initialState, enhancer);
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
-});
+const store = configureStore({});
 
-AppRegistry.registerComponent('Margaux', () => Margaux);
+/**
+ * Root node.
+ * @constructor
+ */
+const App = function() {
+  console.log("coucou");
+  return (
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  );
+};
+
+AppRegistry.registerComponent('Margaux', () => App);
