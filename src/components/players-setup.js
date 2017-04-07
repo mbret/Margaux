@@ -39,8 +39,8 @@ export default class PlayersSetup extends Component {
             <CardItem>
               <Left>
                 <Body>
-                  <Text>Montagne enneigée</Text>
-                  <Text note>Avec plein de sapins</Text>
+                  <Text>Dark Vador</Text>
+                  <Text note>"Je suis ton père"</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -49,20 +49,20 @@ export default class PlayersSetup extends Component {
             <CardItem>
               <Left>
                 <Body>
-                  <Text>Prairie verdoyante</Text>
-                  <Text note>Avec plein d'herbe</Text>
+                  <Text>Spider-Man</Text>
+                  <Text note>"Votre fidèle serviteur l'araignée"</Text>
                 </Body>
               </Left>
             </CardItem>
           </Card>
 
-          <H1 style={{ marginTop: 15, marginBottom: 15 }}>Personnages</H1>
+          <H1 style={{ marginTop: 15, marginBottom: 15 }}>Objets</H1>
           <Card>
             <CardItem>
               <Left>
                 <Body>
-                  <Text>Montagne enneigée</Text>
-                  <Text note>Avec plein de sapins</Text>
+                  <Text>Totem sacré</Text>
+                  <Text note>Enroulé dans du jambon</Text>
                 </Body>
               </Left>
             </CardItem>
@@ -71,8 +71,8 @@ export default class PlayersSetup extends Component {
             <CardItem>
               <Left>
                 <Body>
-                  <Text>Prairie verdoyante</Text>
-                  <Text note>Avec plein d'herbe</Text>
+                  <Text>Anneau unique</Text>
+                  <Text note>Pour les gouverner tous</Text>
                 </Body>
               </Left>
             </CardItem>
