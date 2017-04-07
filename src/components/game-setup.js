@@ -1,14 +1,31 @@
 import React, { Component } from 'react'
-import {
-  Text
-} from 'react-native'
+import { Button, Container, Content, Form, Input, Item, Text } from 'native-base'
 
 export default class GameSetup extends Component {
   static navigationOptions = {
-    title: 'GameSetup'
+    title: 'Configuration du jeu'
   }
 
   render () {
-    return <Text>GameSetup!</Text>
+    const {navigate} = this.props.navigation
+    return (
+      <Container>
+        <Content padder>
+          <Form>
+            <Content padder>
+              <Item>
+                <Input placeholder="Nombre de joueurs"/>
+              </Item>
+            </Content>
+
+            <Content padder>
+              <Button block onPress={() => navigate('NewGame')}>
+                <Text>Continuer</Text>
+              </Button>
+            </Content>
+          </Form>
+        </Content>
+      </Container>
+    )
   }
 }

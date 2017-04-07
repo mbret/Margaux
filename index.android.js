@@ -11,14 +11,8 @@ import {
   View
 } from 'react-native'
 import {
-  Body,
   Container,
   Content,
-  Header,
-  Icon,
-  Left,
-  Right,
-  Title,
   Button,
   Text
 } from 'native-base'
@@ -34,18 +28,9 @@ class NewGame extends Component {
     const {navigate} = this.props.navigation
     return (
       <Container>
-        <Header>
-          <Left>
-            <Button transparent>
-              <Icon name='md-arrow-back'/>
-            </Button>
-          </Left>
-          <Body><Title>Margaux</Title></Body>
-          <Right/>
-        </Header>
         <Content contentContainerStyle={{flex: 1, alignItems: 'center', justifyContent: 'center'}} padder>
           <View style={styles.container}>
-            <Button large rounded onPress={() => navigate('GameSetup')}><Text>New game</Text></Button>
+            <Button large rounded onPress={() => navigate('GameSetup')}><Text>Nouvelle partie</Text></Button>
           </View>
         </Content>
       </Container>
@@ -64,7 +49,13 @@ const Margaux = StackNavigator({
   NewGame: {screen: NewGame},
   GameSetup: {screen: GameSetup}
 }, {
-  headerMode: 'none'
+  navigationOptions: {
+    header: {
+      style: {backgroundColor: '#3f51b5'},
+      titleStyle: {color: 'white'},
+      tintColor: 'white'
+    }
+  }
 })
 
 AppRegistry.registerComponent('Margaux', () => Margaux)
