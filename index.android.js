@@ -18,6 +18,7 @@ import {
 } from 'native-base'
 import { StackNavigator } from 'react-navigation'
 import GameSetup from './src/components/game-setup'
+import PlayersSetup from './src/components/players-setup'
 
 class NewGame extends Component {
   static navigationOptions = {
@@ -47,7 +48,8 @@ const styles = StyleSheet.create({
 
 const Margaux = StackNavigator({
   NewGame: {screen: NewGame},
-  GameSetup: {screen: GameSetup}
+  GameSetup: {screen: GameSetup},
+  PlayersSetup: {screen: PlayersSetup}
 }, {
   navigationOptions: {
     header: {

@@ -6,24 +6,21 @@ export default class GameSetup extends Component {
     title: 'Configuration du jeu'
   }
 
-  render () {
-    const {navigate} = this.props.navigation
+  render() {
+    const { navigate } = this.props.navigation
     return (
       <Container>
         <Content padder>
           <Form>
-            <Content padder>
-              <Item>
-                <Input placeholder="Nombre de joueurs"/>
-              </Item>
-            </Content>
-
-            <Content padder>
-              <Button block onPress={() => navigate('NewGame')}>
-                <Text>Continuer</Text>
-              </Button>
-            </Content>
+            <Item last>
+              <Input placeholder="Nombre de joueurs" />
+            </Item>
           </Form>
+          <Content style={{ marginTop: 15 }}>
+            <Button block onPress={() => navigate('PlayersSetup')}>
+              <Text>Continuer</Text>
+            </Button>
+          </Content>
         </Content>
       </Container>
     )
