@@ -30,6 +30,7 @@ export default connect(
    * Map state to props
    */
   (state) => {
+    console.log("state", state);
     return {
       nav: state.nav
     };

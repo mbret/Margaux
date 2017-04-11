@@ -1,6 +1,7 @@
 import GameSetup from './components/game-setup';
 import PlayersSetup from './components/players-setup';
 import NewGame from "./components/new-game";
+import CardsList from "./components/cards-list";
 import { StackNavigator } from 'react-navigation';
 
 /**
@@ -9,6 +10,7 @@ import { StackNavigator } from 'react-navigation';
 const AppNavigator = StackNavigator({
     NewGame: {screen: NewGame},
     GameSetup: {screen: GameSetup},
+    CardsList: {screen: CardsList},
     PlayersSetup: {screen: PlayersSetup}
 }, {
     navigationOptions: {

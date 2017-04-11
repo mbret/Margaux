@@ -4,7 +4,7 @@ import { Button, Container, Content, Form, Input, Item, Text, Card, CardItem, Ri
 export default class PlayersSetup extends Component {
   static navigationOptions = {
     title: 'Configuration des joueurs'
-  }
+  };
 
   render() {
     const { navigate } = this.props.navigation

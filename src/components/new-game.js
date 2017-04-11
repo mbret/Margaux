@@ -21,7 +21,8 @@ class NewGame extends Component {
           <Container>
               <Content contentContainerStyle={{flex: 1, alignItems: 'center', justifyContent: 'center'}} padder>
                   <View style={styles.container}>
-                      <Button large rounded onPress={() => this.props.navigation.navigate('GameSetup')}><Text>Nouvelle partie</Text></Button>
+                      <Button style={{marginBottom: 10}} large rounded onPress={() => this.props.navigation.navigate('GameSetup')}><Text>Nouvelle partie</Text></Button>
+                      <Button large rounded onPress={() => this.props.navigation.navigate('CardsList')}><Text>Liste des cartes</Text></Button>
                   </View>
               </Content>
           </Container>
