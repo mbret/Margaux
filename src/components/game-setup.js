@@ -1,7 +1,13 @@
 import React, { Component } from 'react'
 import { Button, Container, Content, Form, Input, Item, Text } from 'native-base'
+import { routes } from "../navigation-config";
 
 export default class GameSetup extends Component {
+
+  constructor(props) {
+    super(props);
+    console.log("GameSetup", props);
+  }
 
   static navigationOptions = {
     title: 'Configuration du jeu'
@@ -18,7 +24,7 @@ export default class GameSetup extends Component {
             </Item>
           </Form>
           <Content style={{ marginTop: 15 }}>
-            <Button block onPress={() => navigate('PlayersSetup')}>
+            <Button block onPress={() => navigate(routes.GameSetupPlayerSettings)}>
               <Text>Continuer</Text>
             </Button>
           </Content>
