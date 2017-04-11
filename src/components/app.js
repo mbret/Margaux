@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ActionCreators } from "../actions";
 import { bindActionCreators } from "redux";
 import { addNavigationHelpers } from 'react-navigation';
-import AppNavigator from "../app-navigator";
+import { AppNavigator } from "../navigation-config";
 
 /**
  * Main app container.
