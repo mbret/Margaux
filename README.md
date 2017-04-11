@@ -14,3 +14,6 @@ lieu, personnage, adjectif, expression nulle, verbe
 # Development
 - `react-native start`
 - `react-native run-android`
+
+# Resources
+- Projet du tuto redux utilisé https://github.com/jlebensold/peckish

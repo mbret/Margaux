@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 import { Button, Container, Content, Form, Input, Item, Text } from 'native-base'
 
 export default class GameSetup extends Component {
+
   static navigationOptions = {
     title: 'Configuration du jeu'
-  }
+  };
 
   render() {
-    const { navigate } = this.props.navigation
+    const { navigate } = this.props.navigation;
     return (
       <Container>
         <Content padder>

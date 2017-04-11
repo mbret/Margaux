@@ -9,7 +9,7 @@ import AppNavigator from "../app-navigator";
  * Main app container.
  * It mainly contains the navigator.
  */
-class AppContainer extends Component {
+class App extends Component {
 
   constructor(props) {
     super(props);
@@ -42,4 +42,4 @@ export default connect(
       dispatch
     }, bindActionCreators(ActionCreators, dispatch));
   }
-)(AppContainer);
+)(App);
