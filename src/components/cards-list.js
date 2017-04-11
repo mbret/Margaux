@@ -18,8 +18,8 @@ class CardsList extends Component {
                 <CardItem>
                   <Left>
                     <Body>
-                    <Text>{this.props.categories[this.props.cards[cardId].categoryId].value}</Text>
-                    <Text note>{this.props.expressions[this.props.cards[cardId].expressionId].value}</Text>
+                    <Text>{this.props.expressions[this.props.cards[cardId].expressionId].value}</Text>
+                    <Text note>{this.props.categories[this.props.cards[cardId].categoryId].value}</Text>
                     </Body>
                   </Left>
                 </CardItem>
