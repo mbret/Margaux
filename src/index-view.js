@@ -7,7 +7,6 @@ import {
 
 export default class IndexView extends React.Component{
     render() {
-
         const onPress = function() {
             this.props.navigator.push({index: 1});
         };

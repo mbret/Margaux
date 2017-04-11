@@ -15,8 +15,8 @@ import {
   TouchableHighlight
 } from 'react-native';
 
-import IndexView from "../index-view.android";
-import NewGameView from "../new-game-view.android";
+import IndexView from "../index-view";
+import NewGameView from "../new-game-view";
 import Second from "../second.android";
 
 let _navigator;

@@ -10,3 +10,7 @@ il faudrait coder ce jeu en application qque part parce que c'est chiant de refa
 
 tu fais X catégories que tu peux remplir au début et tu fais des sets de sélection aléatoire d'un élément de chaque et ça t'évite la galère de tout redécouper
 lieu, personnage, adjectif, expression nulle, verbe
+
+# Development
+- `react-native start`
+- `react-native run-android`
