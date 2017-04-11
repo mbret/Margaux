@@ -11,9 +11,18 @@ import { createLogger } from "redux-logger";
 import reducer from "./src/reducers";
 import App from "./src/components/app";
 import { AppRegistry } from 'react-native';
+import CatalogManager from "./src/lib/catalog-manager";
+import catalog from "./src/resources/catalog";
 
 const loggerMiddleware = createLogger({ predicate: (getState, action) => __DEV__});
 
+/**
+ * configure the redux store.
+ * - apply middleware
+ * - create and return the store
+ * @param {Object} initialState
+ * @returns {*}
+ */
 function configureStore(initialState) {
   const enhancer = compose(
     applyMiddleware(
@@ -25,7 +34,11 @@ function configureStore(initialState) {
   return createStore(reducer, initialState, enhancer);
 }
 
-const store = configureStore({});
+// Create the app store.
+// Initial state contain the static catalog.
+const store = configureStore(Object.assign({},
+  CatalogManager.normalizeCatalogForState(catalog)
+));
 
 /**
  * Root node.
