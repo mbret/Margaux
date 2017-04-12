@@ -8,12 +8,18 @@ const expressions = createReducer({}, {
 
 });
 
+const items = createReducer({}, {
+
+});
+
 const cards = createReducer({}, {
 
 });
 
 export {
   categories,
-  expressions,
-  cards
+  items,
+  // TODO: delete cards and expressions later
+  cards,
+  expressions
 };

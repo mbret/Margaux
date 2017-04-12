@@ -3,25 +3,25 @@
  */
 export const categories = [
   {
-    'id': 324,
+    'id': 1,
     'name': 'Lieux',
     'items': [
       {
-        'id': 2,
+        'id': 3,
         'name': 'Paris'
       },
       {
-        'id': 3,
+        'id': 4,
         'name': 'Londres'
       },
       {
-        'id': 4,
+        'id': 5,
         'name': 'Nancy'
       }
     ]
   },
   {
-    'id': 324,
+    'id': 2,
     'name': 'Personnages',
     'items': [
       {
@@ -43,7 +43,7 @@ export const game = {
       'name': 'Joueur 1',
       'cards': [
         {
-          'id': 324,
+          'id': 1,
           'name': 'Personnages',
           'items': [
             {
@@ -53,7 +53,7 @@ export const game = {
           ]
         },
         {
-          'id': 324,
+          'id': 2,
           'name': 'Lieux',
           'items': [
             {
@@ -69,7 +69,7 @@ export const game = {
   // The same structure as the main catalog with categories but with chosen cards relative to the number of players (ex.: 5 players => 5*10 items)
   'deck': [
     {
-      'id': 324,
+      'id': 1,
       'name': 'Personnages',
       'items': [
         {
@@ -79,7 +79,7 @@ export const game = {
       ]
     },
     {
-      'id': 324,
+      'id': 2,
       'name': 'Lieux',
       'items': [
         {

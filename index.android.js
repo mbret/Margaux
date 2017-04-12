@@ -14,6 +14,7 @@ import App from './src/components/app'
 import { AppRegistry } from 'react-native'
 import CatalogManager from './src/lib/catalog-manager'
 import catalog from './src/resources/catalog'
+import { normalizedCategories } from './src/resources/example-state-normalized'
 
 const loggerMiddleware = createLogger({predicate: (getState, action) => __DEV__})
 
@@ -35,10 +36,14 @@ function configureStore (initialState) {
   return createStore(reducer, initialState, enhancer)
 }
 
+console.log(normalizedCategories)
+
 // Create the app store.
 // Initial state contain the static catalog.
-const store = configureStore(Object.assign({},
-  CatalogManager.normalizeCatalogForState(catalog)
+const store = configureStore(Object.assign({}, {
+    ...CatalogManager.normalizeCatalogForState(catalog),
+    ...normalizedCategories.entities
+  }
 ))
 
 /**
