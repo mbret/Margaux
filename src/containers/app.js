@@ -26,18 +26,13 @@ class App extends Component {
 }
 
 export default connect(
-  /**
-   * Map state to props
-   */
+  // Map state to props
   (state) => {
-    console.log("state", state);
     return {
       nav: state.nav
     };
   },
-  /**
-   * Map dispatch to props
-   */
+  // Map dispatch to props
   (dispatch) => {
     return Object.assign({
       dispatch
