@@ -6,18 +6,18 @@ import { routes } from "../navigation";
 
 class NewGame extends Component {
 
+  // Used by ReactNavigation
+  static navigationOptions = {
+    title: 'Margaux'
+  };
+
   constructor(props) {
     super(props);
     console.log("NewGame", props);
 
     // @todo dev
-    this.props.navigation.navigate(routes.GameSetupPlayerSettings);
+    // this.props.navigation.navigate(routes.GameSetupPlayerSettings);
   }
-
-  // Used by ReactNavigation
-  static navigationOptions = {
-      title: 'Margaux'
-  };
 
   render() {
       return (

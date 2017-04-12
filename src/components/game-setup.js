@@ -1,30 +1,49 @@
 import React, { Component } from 'react'
-import { Button, Container, Content, Form, Input, Item, Text } from 'native-base'
+import { Button, Container, Content, Form, Input, Item, Text, Toast } from 'native-base'
 import { routes } from "../navigation";
 
 export default class GameSetup extends Component {
-
-  constructor(props) {
-    super(props);
-    console.log("GameSetup", props);
-  }
 
   static navigationOptions = {
     title: 'Configuration du jeu'
   };
 
+  constructor(props) {
+    super(props);
+    this.state = { number: null };
+  }
+
+  /**
+   * Field ok -> redirect
+   * Fields !ok -> toast
+   */
+  onContinue() {
+    if (!this.state.number || this.state.number === "") {
+      Toast.show({
+        text: "Veuillez choisir un nombre de joueurs",
+        position: 'bottom',
+        buttonText: 'Ok'
+      })
+    } else {
+      this.props.navigation.navigate(routes.GameSetupPlayerSettings, { number: this.state.number })
+    }
+  }
+
+  onChangeText(number) {
+    this.setState({ number: number });
+  }
+
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <Container>
         <Content padder>
           <Form>
             <Item last>
-              <Input placeholder="Nombre de joueurs" />
+              <Input placeholder="Nombre de joueurs" keyboardType="numeric" onChangeText={(number) => this.onChangeText(number)} />
             </Item>
           </Form>
           <Content style={{ marginTop: 15 }}>
-            <Button block onPress={() => navigate(routes.GameSetupPlayerSettings)}>
+            <Button block onPress={() => this.onContinue()}>
               <Text>Continuer</Text>
             </Button>
           </Content>

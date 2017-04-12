@@ -14,10 +14,16 @@ class GameSetupPlayerSettings extends Component {
     title: "Configuration des joueurs"
   };
 
+  /**
+   * @param {Object} props
+   * @param {Array} props.cards - List of cards, we need to pass it to create the game.
+   * @param {Object} props.nbCardsPerCategories - Rule needed to dispatch the cards when creating the game.
+   * @param {number} props.navigation.state.params.number - Number of player, from route parameter.
+   * @todo for now we get the number of players as route param but we could use state
+   */
   constructor(props) {
     super(props);
-
-    console.log(props);
+    this.numberOfPlayers = props.navigation.state.params.number;
     // initial state
     this.state = {
       form: {
@@ -26,7 +32,7 @@ class GameSetupPlayerSettings extends Component {
       },
       valid: false
     };
-    for (let i = 0; i < props.game.nbPlayers; i++) {
+    for (let i = 0; i < this.numberOfPlayers; i++) {
       this.state.form.names.push({
         value: `Joueur ${i}`,
         valid: false
@@ -71,7 +77,7 @@ class GameSetupPlayerSettings extends Component {
 
   render() {
     let inputs = [];
-    for (let i = 0; i < this.props.game.nbPlayers; i++) {
+    for (let i = 0; i < this.numberOfPlayers; i++) {
       inputs.push(
         <Item inlineLabel key={i}>
           <Label>{`Joueur ${i+1}`}</Label>
@@ -99,13 +105,10 @@ export default connect(
   (state) => {
     return {
       cards: state.cards,
-      game: {
-        // @todo dev only, should come from store
-        nbPlayers: 1,
-        nbCardsPerCategories: {
-          [Object.keys(state.categories)[0]]: 1, // 1 card from category 1
-          [Object.keys(state.categories)[0]]: 2, // 2 cards from category 2
-        }
+      // @todo dev only, should come from store
+      nbCardsPerCategories: {
+        [Object.keys(state.categories)[0]]: 1, // 1 card from category 1
+        [Object.keys(state.categories)[0]]: 2, // 2 cards from category 2
       }
     }
   },
