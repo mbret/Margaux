@@ -1,4 +1,4 @@
-import createReducer from "../lib/createReducer";
+import createReducer from "../lib/create-reducer";
 import * as types from "../actions/types";
 import CatalogManager from "../lib/catalog-manager";
 

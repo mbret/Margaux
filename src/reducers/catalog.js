@@ -1,4 +1,4 @@
-import createReducer from "../lib/createReducer";
+import createReducer from "../lib/create-reducer";
 
 const categories = createReducer({}, {
 
