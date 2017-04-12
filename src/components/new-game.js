@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Container, Content, Text } from 'native-base'
 import { StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
-import { routes } from "../navigation-config";
+import { routes } from "../navigation";
 
 class NewGame extends Component {
 

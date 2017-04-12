@@ -1,4 +1,4 @@
-import { AppNavigator } from "../navigation-config";
+import { AppNavigator } from "../navigation";
 
 /**
  * Reducer for React navigation state.nav
