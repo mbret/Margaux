@@ -3,6 +3,7 @@ import PlayersSetup from './components/players-setup';
 import NewGame from "./components/new-game";
 import CardsList from "./components/cards-list";
 import GameSetupPlayerSettings from "./containers/game-setup-player-settings";
+import PlayerTurn from "./containers/player-turn";
 import { StackNavigator } from 'react-navigation';
 
 export const routes = {
@@ -11,6 +12,7 @@ export const routes = {
   CardsList: "CardsList",
   GameSetupPlayerSettings: "GameSetupPlayerSettings",
   PlayersSetup: "PlayersSetup",
+  PlayerTurn: "PlayerTurn"
 };
 
 /**
@@ -22,7 +24,8 @@ export const AppNavigator = StackNavigator({
   [routes.GameSetup]: {screen: GameSetup},
   [routes.CardsList]: {screen: CardsList},
   [routes.GameSetupPlayerSettings]: {screen: GameSetupPlayerSettings},
-  [routes.PlayersSetup]: {screen: PlayersSetup}
+  [routes.PlayersSetup]: {screen: PlayersSetup},
+  [routes.PlayerTurn]: {screen: PlayerTurn}
 }, {
   navigationOptions: {
     header: {

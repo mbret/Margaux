@@ -88,16 +88,14 @@ export default class CatalogManager {
   }
 
   static retrieveUniqRandomCards(cards, nbPlayers, nbCardsPerCategories) {
+    console.log(cards, nbPlayers, nbCardsPerCategories);
     // @todo
     let selectedCards = [];
     // for each players
     for (let i = 0; i < nbPlayers; i++) {
-      selectedCards.push([]);
-      for (let j = 0; j < nbPlayers; j++) {
-        // @todo random
-        let cardIds = Object.keys(cards);
-        selectedCards[j].push(cardIds[0], cardIds[1], cardIds[2]);
-      }
+      // @todo random
+      let cardIds = Object.keys(cards);
+      selectedCards.push([cardIds[0], cardIds[1], cardIds[2]]);
     }
 
     return selectedCards;

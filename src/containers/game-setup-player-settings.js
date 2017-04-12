@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { addNavigationHelpers } from 'react-navigation';
 import { Button, Container, Content, Form, Input, Item, Text, Label, Icon, Toast } from 'native-base'
 import { bindActionCreators } from "redux";
 import { ActionCreators } from "../actions";
+import { routes } from "../navigation";
 
 /**
  * GameSetupPlayerSettings
@@ -71,7 +71,7 @@ class GameSetupPlayerSettings extends Component {
         cards: this.props.cards,
         players: this.state.form.names.map(({value}) => { return {value} })
       });
-      // @todo go to next view
+      this.props.navigation.navigate(routes.PlayerTurn, { player: 0 })
     }
   }
 
