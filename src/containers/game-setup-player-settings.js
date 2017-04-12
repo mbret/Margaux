@@ -110,4 +110,4 @@ export default connect(
     }
   },
   (dispatch) => { return bindActionCreators(ActionCreators, dispatch); }
-)(GameSetupPlayerSettings);
+)(GameSetupPlayerSettings)
