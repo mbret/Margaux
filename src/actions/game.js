@@ -1,15 +1,15 @@
 import * as types from "./types";
 import { routes } from "../routes-config";
+import { NavigationActions } from 'react-navigation'
 
 export function newGame() {
   return (dispatch, getState) => {
     dispatch({
       type: types.NEW_GAME
     })
-    dispatch({
-      type: "Navigation/NAVIGATE",
-      routeName: routes.GameSetup
-    })
+    dispatch(NavigationActions.navigate({
+      routeName: routes.GameSetup,
+    }))
   }
 }
 
@@ -21,10 +21,14 @@ export function startGame({players, cards, nbCardsPerCategories}) {
       cards,
       nbCardsPerCategories
     })
-    dispatch({
-      type: "Navigation/NAVIGATE",
-      routeName: "PlayerTurn"
-    })
+    // once the game start, we reset navigation stack as it's not possible to go back on game settings.
+    // use left menu to go home
+    dispatch(NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: routes.PlayerTurn})
+      ]
+    }))
   }
 }
 
@@ -36,12 +40,12 @@ export function endTurn({playerIndex}) {
     })
     if (getState().game.gameOver) {
       dispatch({
-        type: "Navigation/NAVIGATE",
+        type: types.NAVIGATE,
         routeName: routes.Home
       })
     } else {
       dispatch({
-        type: "Navigation/NAVIGATE",
+        type: types.NAVIGATE,
         routeName: routes.PlayerTurn
       })
     }
