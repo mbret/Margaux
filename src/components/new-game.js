@@ -13,9 +13,11 @@ class NewGame extends Component {
 
   constructor(props) {
     super(props);
-    console.log("NewGame", props);
+  }
 
+  componentWillMount() {
     // @todo dev
+    // this.props.navigation.navigate("GameSetup")
     // this.props.navigation.navigate(routes.GameSetupPlayerSettings);
   }
 

@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { ActionCreators } from "../actions";
 import { bindActionCreators } from "redux";
 import { Button, Container, Content, Text, Card, CardItem, Left, Body } from 'native-base'
+import { routes } from "../navigation";
+import { NavigationActions } from 'react-navigation'
 
 /**
  *
@@ -18,9 +20,29 @@ class PlayerTurn extends Component {
    */
   constructor(props) {
     super(props);
-    let currentPlayerIndex = props.navigation.state.params.player;
-    this.currentPlayer = props.gamePlayers[currentPlayerIndex];
-    this.currentPlayerCardIds = props.gameCards[currentPlayerIndex];
+    this.currentPlayerIndex = props.gameCurrentPlayerTurnIndex;
+    this.currentPlayer = props.gamePlayers[this.currentPlayerIndex];
+    this.currentPlayerCardIds = props.gameCards[this.currentPlayerIndex];
+  }
+
+  componentWillMount() {
+    // game over, reset navigation history and redirect to home
+    if (this.currentPlayerIndex === null) {
+      this.props.navigation.dispatch(
+        NavigationActions.reset({
+            index: 0,
+            actions: [
+              NavigationActions.navigate({ routeName: routes.CardsList})
+            ]
+          }
+        ));
+    }
+  }
+
+  onNext() {
+    this.props.endTurn({
+      playerIndex: this.currentPlayerIndex
+    });
   }
 
   render() {
@@ -42,7 +64,7 @@ class PlayerTurn extends Component {
               </Card>
             )
           })}
-          <Button block>
+          <Button block onPress={ () => this.onNext() }>
             <Text>Suivant</Text>
           </Button>
         </Content>
@@ -55,6 +77,7 @@ export default connect(
   // Map state to props
   (state) => {
     return {
+      gameCurrentPlayerTurnIndex: state.game.currentTurn,
       gamePlayers: state.game.players,
       gameCards: state.game.cards,
       expressions: state.expressions,

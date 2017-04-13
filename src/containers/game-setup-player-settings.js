@@ -40,6 +40,11 @@ class GameSetupPlayerSettings extends Component {
     }
   }
 
+  componentWillMount() {
+    // @todo dev
+    // this.onPlaySubmit();
+  }
+
   onChangeText(index, text) {
     // as we need to rely on prevState, we use async function.
     this.setState((prevState, props) => {
@@ -71,7 +76,6 @@ class GameSetupPlayerSettings extends Component {
         cards: this.props.cards,
         players: this.state.form.names.map(({value}) => { return {value} })
       });
-      this.props.navigation.navigate(routes.PlayerTurn, { player: 0 })
     }
   }
 

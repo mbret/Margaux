@@ -10,7 +10,12 @@ export default class GameSetup extends Component {
 
   constructor(props) {
     super(props);
-    this.state = { number: null };
+    this.state = { number: "2" };
+  }
+
+  componentWillMount() {
+    // @dev
+    this.onContinue();
   }
 
   /**
@@ -25,7 +30,7 @@ export default class GameSetup extends Component {
         buttonText: 'Ok'
       })
     } else {
-      this.props.navigation.navigate(routes.GameSetupPlayerSettings, { number: this.state.number })
+      this.props.navigation.navigate(routes.GameSetupPlayerSettings, { number: parseInt(this.state.number) })
     }
   }
 
@@ -39,7 +44,7 @@ export default class GameSetup extends Component {
         <Content padder>
           <Form>
             <Item last>
-              <Input placeholder="Nombre de joueurs" keyboardType="numeric" onChangeText={(number) => this.onChangeText(number)} />
+              <Input placeholder="Nombre de joueurs" value={ this.state.number } keyboardType="numeric" onChangeText={(number) => this.onChangeText(number)} />
             </Item>
           </Form>
           <Content style={{ marginTop: 15 }}>
