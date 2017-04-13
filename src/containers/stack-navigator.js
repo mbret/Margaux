@@ -19,6 +19,11 @@ export default StackNavigator({
   [routes.PlayersSetup]: {screen: PlayersSetup},
   [routes.PlayerTurn]: {screen: PlayerTurn}
 }, {
+  initialRouteName: routes.Home,
+  initialRouteParams: {},
+  mode: 'card',
+  // ios pattern but looks good on android too
+  headerMode: 'float',
   navigationOptions: {
     header: {
       style: {backgroundColor: '#3f51b5'},
