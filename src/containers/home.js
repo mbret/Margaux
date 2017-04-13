@@ -22,6 +22,10 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props);
+
+    setImmediate(function() {
+      props.navigation.navigate(routes.GameSetup)
+    });
   }
 
   onNewGame() {
