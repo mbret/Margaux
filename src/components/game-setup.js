@@ -30,7 +30,6 @@ export default class GameSetup extends Component {
   }
 
   onChangeText({numberOfPlayers, numberOfPlaces, numberOfThings, numberOfAdjectives, numberOfSentences, numberOfVerbs, numberOfCharacters}) {
-    console.log("sdf", numberOfPlayers);
     if (numberOfPlayers !== undefined) {
       this.setState({ numberOfPlayers });
     }
