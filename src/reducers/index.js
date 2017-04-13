@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 import * as recipesReducer from "./recipes";
-import * as navReducer from "./nav";
+import * as navReducer from "./navigation";
 import * as catalogReducer from "./catalog";
 import * as gameReducer from "./game";
 

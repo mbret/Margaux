@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { Button, Container, Content, Form, Input, Item, Text, Label, Icon, Toast } from 'native-base'
 import { bindActionCreators } from "redux";
 import { ActionCreators } from "../actions";
-import { routes } from "../navigation";
+import { routes } from "../routes-config";
 
 /**
  * GameSetupPlayerSettings

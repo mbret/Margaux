@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Container, Content, Form, Input, Item, Text, Toast } from 'native-base'
-import { routes } from "../navigation";
+import { routes } from "../routes-config";
 
 export default class GameSetup extends Component {
 

@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { ActionCreators } from "../actions";
 import { bindActionCreators } from "redux";
 import { addNavigationHelpers } from 'react-navigation';
-import { AppNavigator } from "../navigation";
+import StackNavigator from "./stack-navigator";
 
 /**
  * Main app container.
@@ -11,15 +11,16 @@ import { AppNavigator } from "../navigation";
  */
 class App extends Component {
 
-  constructor(props) {
-    super(props);
-  }
-
   render() {
     return (
-        <AppNavigator navigation={addNavigationHelpers({
-            dispatch: this.props.dispatch,
-            state: this.props.nav,
+        <StackNavigator navigation={addNavigationHelpers({
+          // @see https://reactnavigation.org/docs/navigators/navigation-prop
+          // navigation prop is needed for component StackNavigator.
+          // -> All component (screens) that are transitioned through StackNavigator will have 'navigation' prop available.
+          // navigation.dispatch is used internally by the component (we do not need it, we can inject it through connect)
+          // navigation.state contain info about the state (name, params, ...)
+          dispatch: this.props.dispatch,
+          state: this.props.nav,
         })} />
     );
   }

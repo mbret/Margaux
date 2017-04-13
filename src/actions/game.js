@@ -1,5 +1,5 @@
 import * as types from "./types";
-import { routes } from "../navigation";
+import { routes } from "../routes-config";
 
 export function startGame({players, cards, nbCardsPerCategories}) {
   return (dispatch, getState) => {

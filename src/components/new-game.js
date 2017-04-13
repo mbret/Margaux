@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Button, Container, Content, Text } from 'native-base'
 import { StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
-import { routes } from "../navigation";
+import { routes } from "../routes-config";
 
 class NewGame extends Component {
 
@@ -13,6 +13,7 @@ class NewGame extends Component {
 
   constructor(props) {
     super(props);
+    console.log(props);
   }
 
   componentWillMount() {
