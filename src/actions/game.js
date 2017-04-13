@@ -35,10 +35,3 @@ export function endTurn({playerIndex}) {
     }
   }
 }
-
-export function processTurn({playerIndex}) {
-  return {
-    type: types.END_TURN,
-    currentPlayerIndex: playerIndex
-  }
-}

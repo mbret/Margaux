@@ -3,8 +3,6 @@ import { connect } from "react-redux";
 import { ActionCreators } from "../actions";
 import { bindActionCreators } from "redux";
 import { Button, Container, Content, Text, Card, CardItem, Left, Body } from 'native-base'
-import { routes } from "../navigation";
-import { NavigationActions } from 'react-navigation'
 
 /**
  *
