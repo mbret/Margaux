@@ -2,7 +2,7 @@ import * as types from "./types";
 import { routes } from "../routes-config";
 import { NavigationActions } from 'react-navigation'
 
-export function newGame() {
+const newGame = () => {
   return (dispatch, getState) => {
     dispatch({
       type: types.NEW_GAME
@@ -13,8 +13,8 @@ export function newGame() {
   }
 }
 
-export function startGame({players, cards, nbCardsPerCategories}) {
-  return (dispatch, getState) => {
+const startGame = ({players, cards, nbCardsPerCategories}) => {
+  return (dispatch) => {
     dispatch({
       type: types.START_GAME,
       players,
@@ -32,7 +32,7 @@ export function startGame({players, cards, nbCardsPerCategories}) {
   }
 }
 
-export function endTurn({playerIndex}) {
+const endTurn = ({playerIndex}) => {
   return (dispatch, getState) => {
     dispatch({
       type: types.PROCESS_TURN,
@@ -50,4 +50,10 @@ export function endTurn({playerIndex}) {
       })
     }
   }
+}
+
+export {
+  newGame,
+  startGame,
+  endTurn
 }
