@@ -1,5 +1,5 @@
 export const routes = {
-  NewGame: "NewGame",
+  Home: "Home",
   GameSetup: "GameSetup",
   CardsList: "CardsList",
   GameSetupPlayerSettings: "GameSetupPlayerSettings",

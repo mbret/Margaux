@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ActionCreators } from "../actions";
 
-class NewGame extends Component {
+class Home extends Component {
 
   // Used by ReactNavigation
   static navigationOptions = {
@@ -44,4 +44,4 @@ const styles = StyleSheet.create({
 export default connect(
   (state) => { return {}; },
   (dispatch) => bindActionCreators(ActionCreators, dispatch)
-)(NewGame);
+)(Home);

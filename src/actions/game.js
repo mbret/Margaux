@@ -37,7 +37,7 @@ export function endTurn({playerIndex}) {
     if (getState().game.gameOver) {
       dispatch({
         type: "Navigation/NAVIGATE",
-        routeName: routes.NewGame
+        routeName: routes.Home
       })
     } else {
       dispatch({
