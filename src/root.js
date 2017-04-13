@@ -8,6 +8,8 @@ import { Provider } from 'react-redux'
 import App from './containers/app'
 import store from "./store";
 
+console.debug("Starting app state", store.getState());
+
 /**
  * Root node.
  * @constructor

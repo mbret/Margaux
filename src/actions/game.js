@@ -1,6 +1,18 @@
 import * as types from "./types";
 import { routes } from "../routes-config";
 
+export function newGame() {
+  return (dispatch, getState) => {
+    dispatch({
+      type: types.NEW_GAME
+    })
+    dispatch({
+      type: "Navigation/NAVIGATE",
+      routeName: routes.GameSetup
+    })
+  }
+}
+
 export function startGame({players, cards, nbCardsPerCategories}) {
   return (dispatch, getState) => {
     dispatch({

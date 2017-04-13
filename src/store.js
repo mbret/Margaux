@@ -1,7 +1,5 @@
 import CatalogManager from './lib/catalog-manager'
 import catalog from './resources/catalog'
-import { normalizedCategories } from './resources/example-state-normalized'
-import { normalizedGame } from './resources/example-state-normalized'
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunkMiddleware from 'redux-thunk'
 import reducer from './reducers'
@@ -33,8 +31,8 @@ function configureStore (initialState) {
 // Here are some help to know what to put inside
 const store = configureStore({
   ...CatalogManager.normalizeCatalogForState(catalog),
-  ...normalizedCategories.entities,
-  game: normalizedGame.entities
+  // ...normalizedCategories.entities,
+  // game: normalizedGame.entities
 })
 
 export default store;

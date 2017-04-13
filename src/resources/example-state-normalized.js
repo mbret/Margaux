@@ -2,8 +2,8 @@
  * Example of a normalized state.
  */
 import { normalize, schema } from 'normalizr'
-import { categories } from './example-state'
-import { game } from './example-state'
+import state from './example-state'
+let { categories, game } = state;
 
 // Catalog state
 
@@ -15,7 +15,7 @@ const category = new schema.Entity('categories', {
   items: [item]
 })
 
-export const normalizedCategories = normalize(categories, [category])
+const normalizedCategories = normalize(categories, [category])
 
 // Game state
 
@@ -27,5 +27,9 @@ const player = new schema.Entity('players', {
   cards: [card]
 })
 
-export const normalizedGame = normalize(game.players, [player])
+const normalizedGame = normalize(game, [player])
 
+export default {
+  categories: normalizedCategories,
+  game: normalizedGame
+}

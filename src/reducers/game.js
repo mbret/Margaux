@@ -2,7 +2,20 @@ import createReducer from "../lib/create-reducer";
 import * as types from "../actions/types";
 import CatalogManager from "../lib/catalog-manager";
 
-export const game = createReducer({}, {
+const initialGameState = {
+  currentTurn: 0,
+  players: [],
+  cards: [],
+  gameOver: false
+};
+
+export const game = createReducer(initialGameState, {
+  // reset state of game to initial state
+  [types.NEW_GAME]() {
+    return initialGameState;
+  },
+
+  // prepare game state with players, cards, ...
   [types.START_GAME](state, action) {
     return {
       currentTurn: 0,

@@ -1,7 +1,7 @@
 /**
  * Example of an non-normalized state.
  */
-export const categories = [
+const categories = [
   {
     'id': 1,
     'name': 'Lieux',
@@ -35,8 +35,8 @@ export const categories = [
     ]
   }
 ]
-
-export const game = {
+const game = {
+  's': true,
   'players': [
     {
       'id': 1,
@@ -89,4 +89,8 @@ export const game = {
       ]
     }
   ]
+}
+export default {
+  categories,
+  game
 }

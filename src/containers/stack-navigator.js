@@ -1,6 +1,6 @@
 import GameSetup from '../components/game-setup';
 import PlayersSetup from '../components/players-setup';
-import NewGame from "../components/new-game";
+import NewGame from "../containers/new-game";
 import CardsList from "../components/cards-list";
 import GameSetupPlayerSettings from "./game-setup-player-settings";
 import PlayerTurn from "./player-turn";
