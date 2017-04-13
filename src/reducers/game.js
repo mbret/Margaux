@@ -17,16 +17,16 @@ export const game = createReducer({}, {
     // we were on last player
     // game over
     if (action.currentPlayerIndex === state.players.length - 1) {
-      return Object.assign({}, {
+      return {
         ...state,
         currentTurn: null,
         gameOver: true
-      })
+      }
     } else {
-      return Object.assign({}, {
+      return {
         ...state,
         currentTurn: ++nextTurnIndex,
-      })
+      }
     }
   }
 });

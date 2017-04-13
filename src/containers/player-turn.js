@@ -25,20 +25,6 @@ class PlayerTurn extends Component {
     this.currentPlayerCardIds = props.gameCards[this.currentPlayerIndex];
   }
 
-  componentWillMount() {
-    // game over, reset navigation history and redirect to home
-    if (this.currentPlayerIndex === null) {
-      this.props.navigation.dispatch(
-        NavigationActions.reset({
-            index: 0,
-            actions: [
-              NavigationActions.navigate({ routeName: routes.CardsList})
-            ]
-          }
-        ));
-    }
-  }
-
   onNext() {
     this.props.endTurn({
       playerIndex: this.currentPlayerIndex

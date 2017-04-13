@@ -30,6 +30,7 @@ function configureStore (initialState) {
 
 // Create the app store.
 // Initial state contain the static catalog.
+// Here are some help to know what to put inside
 const store = configureStore(Object.assign({}, {
     ...CatalogManager.normalizeCatalogForState(catalog),
     ...normalizedCategories.entities,
