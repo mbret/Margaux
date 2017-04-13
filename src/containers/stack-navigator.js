@@ -4,8 +4,10 @@ import Home from "../containers/home";
 import CardsList from "../components/cards-list";
 import GameSetupPlayerSettings from "./game-setup-player-settings";
 import PlayerTurn from "./player-turn";
+import Info from "../containers/info";
 import { StackNavigator } from 'react-navigation';
 import { routes } from "../routes-config";
+import * as constants from "../constants";
 
 /**
  * App navigation configuration.
@@ -17,7 +19,8 @@ export default StackNavigator({
   [routes.CardsList]: {screen: CardsList},
   [routes.GameSetupPlayerSettings]: {screen: GameSetupPlayerSettings},
   [routes.PlayersSetup]: {screen: PlayersSetup},
-  [routes.PlayerTurn]: {screen: PlayerTurn}
+  [routes.PlayerTurn]: {screen: PlayerTurn},
+  [routes.Info]: {screen: Info}
 }, {
   initialRouteName: routes.Home,
   initialRouteParams: {},
@@ -25,10 +28,10 @@ export default StackNavigator({
   // ios pattern but looks good on android too
   headerMode: 'float',
   navigationOptions: {
-    header: {
-      style: {backgroundColor: '#3f51b5'},
-      titleStyle: {color: 'white'},
-      tintColor: 'white'
-    }
+    title: constants.AppName,
+    headerStyle: {backgroundColor: '#3f51b5'},
+    headerTitleStyle : {color: 'white'},
+    // back arrow
+    headerTintColor : 'white',
   }
 });

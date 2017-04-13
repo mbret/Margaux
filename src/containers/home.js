@@ -1,16 +1,24 @@
 import React, { Component } from 'react'
-import { Button, Container, Content, Text } from 'native-base'
+import { Button, Container, Content, Text, Icon, Header, Left, Body, Title, Right } from 'native-base'
 import { StyleSheet, View } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ActionCreators } from "../actions";
+import * as constants from "../constants";
+import { routes } from "../routes-config";
 
-class Home extends Component {
+class Home extends React.Component {
 
   // Used by ReactNavigation
-  static navigationOptions = {
-    title: 'Margaux'
-  };
+  static navigationOptions = ({ navigation, scree }) => {
+    const navigateToInfo = () => {
+      navigation.navigate(routes.Info);
+    }
+    return {
+      title: constants.AppName,
+      headerRight: <Button transparent light iconLeft onPress={() => navigateToInfo()}><Text>Info</Text></Button>
+    }
+  }
 
   constructor(props) {
     super(props);

@@ -4,5 +4,6 @@ export const routes = {
   CardsList: "CardsList",
   GameSetupPlayerSettings: "GameSetupPlayerSettings",
   PlayersSetup: "PlayersSetup",
-  PlayerTurn: "PlayerTurn"
+  PlayerTurn: "PlayerTurn",
+  Info: "Info"
 };
