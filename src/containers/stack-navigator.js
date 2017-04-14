@@ -1,8 +1,8 @@
-import GameSetup from '../components/game-setup';
+import GameSetup from '../containers/game-setup';
 import PlayersSetup from '../components/players-setup';
 import Home from "../containers/home";
 import CardsList from "../components/cards-list";
-import GameSetupPlayerSettings from "./game-setup-player-settings";
+// import GameSetupPlayerSettings from "./game-setup-player-settings";
 import PlayerTurn from "./player-turn";
 import Info from "../containers/info";
 import { StackNavigator } from 'react-navigation';
@@ -17,7 +17,7 @@ export default StackNavigator({
   [routes.Home]: {screen: Home},
   [routes.GameSetup]: {screen: GameSetup},
   [routes.CardsList]: {screen: CardsList},
-  [routes.GameSetupPlayerSettings]: {screen: GameSetupPlayerSettings},
+  // [routes.GameSetupPlayerSettings]: {screen: GameSetupPlayerSettings},
   [routes.PlayersSetup]: {screen: PlayersSetup},
   [routes.PlayerTurn]: {screen: PlayerTurn},
   [routes.Info]: {screen: Info}
