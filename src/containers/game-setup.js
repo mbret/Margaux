@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Button, Container, Content, Form, ListItem, Item, Text, Toast, Label, List, Left, Right, Body, Separator, Picker, InputGroup, Input, Icon } from 'native-base'
 import { routes } from "../routes-config";
 import { bindActionCreators } from "redux";
+import { StyleSheet, View, BackAndroid } from "react-native";
 import { ActionCreators } from "../actions";
 import { connect } from "react-redux";
 
@@ -20,6 +21,7 @@ class GameSetup extends Component {
    */
   constructor(props) {
     super(props);
+    let self = this;
     this.state = {
       players: [
         { value: "Joueur 1" }
@@ -31,6 +33,19 @@ class GameSetup extends Component {
       numberOfVerbs: "2",
       numberOfCharacters: "1",
     };
+
+    this.onHardwareBackPress = function() {
+      self.props.navigation.goBack()
+      return true
+    }
+  }
+
+  componentDidMount() {
+    BackAndroid.addEventListener('hardwareBackPress', this.onHardwareBackPress);
+  }
+
+  componentWillUnmount() {
+    BackAndroid.removeEventListener('hardwareBackPress', this.onHardwareBackPress);
   }
 
   /**

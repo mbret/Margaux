@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Button, Container, Content, Text, Icon, Header, Left, Body, Title, Right } from 'native-base'
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, BackAndroid, Alert } from "react-native";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
 import { ActionCreators } from "../actions";
@@ -22,10 +22,6 @@ class Home extends React.Component {
 
   constructor(props) {
     super(props);
-
-    setImmediate(function() {
-      props.navigation.navigate(routes.GameSetup)
-    });
   }
 
   onNewGame() {

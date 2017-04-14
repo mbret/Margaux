@@ -3,15 +3,33 @@ import { connect } from "react-redux";
 import { ActionCreators } from "../actions";
 import { bindActionCreators } from "redux";
 import { Button, Container, Content, Text, Card, CardItem, Left, Body } from 'native-base'
+import { Alert } from "react-native";
 
 /**
  *
  */
 class PlayerTurn extends Component {
 
-  static navigationOptions = {
-    title: "Jeu"
-  };
+  static navigationOptions = ({ navigation, screenProps }) => {
+    console.log(navigation, screenProps)
+    const leaveGame = function() {
+      Alert.alert(
+        'Attention',
+        'Vous allez quitter votre partie !',
+        [
+          {text: 'Nooon !', onPress: () => console.log('Ask me later pressed')},
+          {text: 'Oui', onPress: () => navigation.actionCreators.leaveGame()},
+        ],
+      )
+    }
+    return {
+      title: "Jeu",
+      headerRight:
+        <Button transparent light iconLeft onPress={() => leaveGame()}>
+          <Text>Home</Text>
+        </Button>
+    }
+  }
 
   /**
    * @param props

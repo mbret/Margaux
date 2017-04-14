@@ -52,8 +52,24 @@ const endTurn = ({playerIndex}) => {
   }
 }
 
+const leaveGame = () => {
+  console.log("action creator");
+  return (dispatch) => {
+    dispatch({
+      type: types.LEAVE_GAME
+    }  )
+    dispatch(NavigationActions.reset({
+      index: 0,
+      actions: [
+        NavigationActions.navigate({ routeName: routes.Home})
+      ]
+    }))
+  }
+}
+
 export {
   newGame,
   startGame,
-  endTurn
+  endTurn,
+  leaveGame
 }

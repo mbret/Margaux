@@ -41,5 +41,10 @@ export const game = createReducer(initialGameState, {
         currentTurn: ++nextTurnIndex,
       }
     }
+  },
+
+  [types.LEAVE_GAME](state, action) {
+    console.log("reducer");
+    return initialGameState;
   }
 });

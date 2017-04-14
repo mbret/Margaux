@@ -19,8 +19,10 @@ class App extends Component {
           // -> All component (screens) that are transitioned through StackNavigator will have 'navigation' prop available.
           // navigation.dispatch is used internally by the component (we do not need it, we can inject it through connect)
           // navigation.state contain info about the state (name, params, ...)
+          // navigation.actionCreators allow use of action method inside 'navigationOptions' function for example.
           dispatch: this.props.dispatch,
           state: this.props.nav,
+          actionCreators: bindActionCreators(ActionCreators, this.props.dispatch)
         })} />
     );
   }
