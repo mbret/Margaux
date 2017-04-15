@@ -1,4 +1,14 @@
-let id = 1;
+const uuidV4 = require('uuid/v4')
+
+let placesArray = require('./catalog/places.json')
+let id = 1
+
+let placesArrayWithId = placesArray.map(item => {
+  return {
+    id: uuidV4(),
+    value: item
+  }
+})
 
 /**
  * Static word catalog.
@@ -6,38 +16,21 @@ let id = 1;
  */
 export default [
   {
-    "id": id++,
-    "value": "Lieux",
-    "expressions": [
-      {
-        "id": id++,
-        "value": "Paris"
-      },
-      {
-        "id": id++,
-        "value": "Londres"
-      },
-      {
-        "id": id++,
-        "value": "Nancy"
-      },
-      {
-        "id": id++,
-        "value": "Chine"
-      }
-    ]
+    'id': id++,
+    'value': 'Lieux',
+    'expressions': placesArrayWithId
   },
   {
-    "id": id++,
-    "value": "Personnages",
-    "expressions": [
+    'id': id++,
+    'value': 'Personnages',
+    'expressions': [
       {
-        "id": id++,
-        "value": "Chewbacca"
+        'id': id++,
+        'value': 'Chewbacca'
       },
       {
-        "id": id++,
-        "value": "Donald"
+        'id': id++,
+        'value': 'Donald'
       }
     ]
   }
