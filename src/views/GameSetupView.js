@@ -85,8 +85,9 @@ export default class GameSetupView extends Component {
   canAddPlayers () {
     // There must be at least 2 cards of each deck for each player
     if (this.props.players.length > 0) {
-      return initialState.availableCards.places.length / this.props.players.length > 2 ||
-        initialState.availableCards.characters.length / this.props.players.length > 2
+      return initialState.availableCards.places.length / this.props.players.length > 2 &&
+        initialState.availableCards.characters.length / this.props.players.length > 2 &&
+        initialState.availableCards.expressions.length / this.props.players.length > 2
     } else {
       return true
     }

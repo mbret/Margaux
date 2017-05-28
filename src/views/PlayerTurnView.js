@@ -23,11 +23,11 @@ class PlayerTurnView extends Component {
     const playerCards = Object.keys(this.props.players[playerIndex].cards).map((deck, index) =>
       <View style={styles.column} key={index}>
         <View style={styles.column}>
-          <Text style={{fontSize: 20, margin: 10, textAlign: 'center'}}>{this.getDeckTitle(deck)}</Text>
+          <Text style={{fontSize: 30, margin: 10, textAlign: 'center'}}>{this.getDeckTitle(deck)}</Text>
         </View>
         <View style={styles.column}>
           {this.props.players[playerIndex].cards[deck].map((card) =>
-            <Text style={{textAlign: 'center'}} key={card}>{card}</Text>
+            <Text style={{fontSize: 20, textAlign: 'center'}} key={card}>{card}</Text>
           )}
         </View>
       </View>
@@ -69,6 +69,8 @@ class PlayerTurnView extends Component {
         return 'Personnages'
       case 'places':
         return 'Lieux'
+      case 'expressions':
+        return 'Expressions'
       default:
         return ''
     }
