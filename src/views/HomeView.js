@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Button
+  Button,
+  Image
 } from 'react-native'
 
 export default class HomeView extends Component {
@@ -18,6 +19,7 @@ export default class HomeView extends Component {
     const {navigate} = this.props.navigation
     return (
       <View style={styles.container}>
+        <Image source={require('../assets/icons/png/cards.png')}/>
         <Text style={styles.welcome}>
           Bienvenue sur Margaux!
         </Text>

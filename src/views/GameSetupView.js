@@ -42,7 +42,7 @@ export default class GameSetupView extends Component {
             <Button onPress={() => {
               this.distributeCards()
               navigate('PlayerTurn', {playerIndex: 0, player: this.props.players[0]})
-            }} title="Jouer" color="#1976d2" accessibilityLabel="Jouer"/>
+            }} title="Jouer" color="#1976d2" accessibilityLabel="Jouer" disabled={this.props.players.length < 2}/>
           </View>
         </View>
       </View>
