@@ -2,17 +2,18 @@ import { connect } from 'react-redux'
 import React, { Component } from 'react'
 import {
   StyleSheet,
-  Text,
   View,
-  Button
+  ScrollView
 } from 'react-native'
 import { NavigationActions } from 'react-navigation'
+import { Text, List, Button, Card } from 'react-native-elements'
 
 class PlayerTurnView extends Component {
   static navigationOptions = ({navigation}) => ({
-    title: `Tour de: ${navigation.state.params.player.name}`,
+    title: `Tour de ${navigation.state.params.player.name}`,
+    headerTintColor: 'white',
     headerStyle: {
-      backgroundColor: '#90a4ae'
+      backgroundColor: '#039be5'
     }
   })
 
@@ -20,36 +21,64 @@ class PlayerTurnView extends Component {
     const {navigate} = this.props.navigation
     let playerIndex = this.props.navigation.state.params.playerIndex
 
+    {/*<View style={styles.column} key={index}>
+        <View style={styles.column}>
+          <Text h3>{this.getDeckTitle(deck)}</Text>
+        </View>
+        <View style={styles.column}>
+          <List containerStyle={{marginBottom: 20}}>
+            {this.props.players[playerIndex].cards[deck].map((card) =>
+              <Text style={{padding: 10}} key={card}>
+                {card}
+              </Text>
+            )}
+          </List>
+        </View>
+      </View>*/
+    }
+
     const playerCards = Object.keys(this.props.players[playerIndex].cards).map((deck, index) =>
-      <View style={styles.column} key={index}>
-        <View style={styles.column}>
-          <Text style={{fontSize: 30, margin: 10, textAlign: 'center'}}>{this.getDeckTitle(deck)}</Text>
-        </View>
-        <View style={styles.column}>
-          {this.props.players[playerIndex].cards[deck].map((card) =>
-            <Text style={{fontSize: 20, textAlign: 'center'}} key={card}>{card}</Text>
-          )}
-        </View>
-      </View>
+      <Card
+        title={this.getDeckTitle(deck)} key={index}>
+        {this.props.players[playerIndex].cards[deck].map((card) =>
+          <Text key={card}>
+            {card}
+          </Text>
+        )}
+      </Card>
     )
 
     return (
-      <View style={styles.container}>
+      <ScrollView style={styles.container}>
         {playerCards}
         <View style={styles.row}>
           <View style={styles.buttonContainer}>
             {!this.isLastPlayer() &&
-            <Button onPress={() => navigate('PlayerTurn', {
-              playerIndex: this.getNextPlayerIndex(),
-              player: this.props.players[this.getNextPlayerIndex()]
-            })} title="Joueur suivant" color="#1976d2" accessibilityLabel="Joueur suivant"/>
+            <Button
+              onPress={() => navigate('PlayerTurn', {
+                playerIndex: this.getNextPlayerIndex(),
+                player: this.props.players[this.getNextPlayerIndex()]
+              })}
+              title="Au suivant !"
+              backgroundColor='#0277bd'
+              color='white'
+              fontFamily='Kalam-Bold'
+              fontSize={20}
+              buttonStyle={{borderRadius: 100, margin: 0, padding: 10, paddingLeft: 20, paddingRight: 20}}/>
             }
             {this.isLastPlayer() &&
-            <Button onPress={() => this.gameOver()} title="Finir la partie" color="#1976d2" accessibilityLabel="Finir la partie"/>
+            <Button
+              onPress={() => this.gameOver()}
+              title="Finir la partie"
+              backgroundColor='#ffb300'
+              color='black'
+              fontFamily='Kalam-Bold'
+              fontSize={20}
+              buttonStyle={{borderRadius: 100, margin: 0, padding: 10, paddingLeft: 20, paddingRight: 20}}/>
             }
           </View>
         </View>
-      </View>
+      </ScrollView>
     )
   }
 
@@ -100,7 +129,7 @@ export default connect(
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f6',
+    backgroundColor: '#01579b',
     padding: 20
   },
   column: {
@@ -110,7 +139,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f6',
+    backgroundColor: '#01579b',
     marginBottom: 20
   },
   buttonContainer: {

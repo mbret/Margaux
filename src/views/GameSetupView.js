@@ -3,6 +3,7 @@ import {
   StyleSheet,
   Text,
   View,
+  ScrollView,
   Button,
   TextInput
 } from 'react-native'
@@ -13,8 +14,9 @@ const uuidV4 = require('uuid/v4')
 export default class GameSetupView extends Component {
   static navigationOptions = {
     title: 'Configuration du jeu',
+    headerTintColor: 'white',
     headerStyle: {
-      backgroundColor: '#90a4ae'
+      backgroundColor: '#039be5'
     }
   }
 
@@ -22,7 +24,7 @@ export default class GameSetupView extends Component {
     const {navigate} = this.props.navigation
     const playersInputs = this.props.players.map((player) =>
       <View style={styles.row} key={player.id}>
-        <Text>Joueur</Text>
+        {/*<Text>Joueur</Text>*/}
         <TextInput
           style={{flex: 1}}
           onChangeText={(text) => this.props.onChangeNameOfPlayer(player.id, text)}
@@ -32,20 +34,23 @@ export default class GameSetupView extends Component {
       </View>
     )
     return (
-      <View style={styles.container}>
-        {playersInputs}
-        <View style={styles.row}>
-          <View style={styles.buttonContainer}>
-            <Button onPress={() => this.addPlayer()} title="Ajouter un joueur" color="#1976d2" accessibilityLabel="Ajouter un joueur" disabled={!this.canAddPlayers()}/>
-          </View>
-          <View style={styles.buttonContainer}>
-            <Button onPress={() => {
-              this.distributeCards()
-              navigate('PlayerTurn', {playerIndex: 0, player: this.props.players[0]})
-            }} title="Jouer" color="#1976d2" accessibilityLabel="Jouer" disabled={this.props.players.length < 2}/>
+      <ScrollView style={{backgroundColor: 'white'}}>
+        <View style={styles.container}>
+          <Text style={{fontFamily: 'Kalam-Bold', fontSize: 30, color: '#01579b', marginBottom: 10}}>Qui est-ce qui joue ?</Text>
+          {playersInputs}
+          <View style={styles.row}>
+            <View style={styles.buttonContainer}>
+              <Button onPress={() => this.addPlayer()} title="Ajouter un joueur" color="#039be5" accessibilityLabel="Ajouter un joueur" disabled={!this.canAddPlayers()}/>
+            </View>
+            <View style={styles.buttonContainer}>
+              <Button onPress={() => {
+                this.distributeCards()
+                navigate('PlayerTurn', {playerIndex: 0, player: this.props.players[0]})
+              }} title="Jouer" color="#039be5" accessibilityLabel="Jouer" disabled={this.props.players.length < 2}/>
+            </View>
           </View>
         </View>
-      </View>
+      </ScrollView>
     )
   }
 
@@ -95,9 +100,10 @@ export default class GameSetupView extends Component {
 
   addPlayer () {
     let playerId = uuidV4()
+    let playerNumber = this.props.players.length + 1
     this.props.onPressAddPlayer({
       id: playerId,
-      name: 'Joueur ' + playerId.substring(0, 5)
+      name: 'Joueur ' + playerNumber
     })
   }
 }
@@ -105,14 +111,15 @@ export default class GameSetupView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#f5f5f6',
+    alignItems: 'center',
+    backgroundColor: '#fff',
     padding: 20
   },
   row: {
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f6'
+    backgroundColor: '#fff'
   },
   buttonContainer: {
     margin: 20

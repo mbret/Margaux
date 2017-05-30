@@ -2,36 +2,44 @@ import React, { Component } from 'react'
 import {
   StyleSheet,
   Text,
-  View,
-  Button,
-  Image
+  ScrollView,
+  View
 } from 'react-native'
+import { Button } from 'react-native-elements'
 
 export default class HomeView extends Component {
   static navigationOptions = {
     title: 'Margaux',
+    header: null,
+    headerTintColor: 'white',
     headerStyle: {
-      backgroundColor: '#90a4ae'
+      backgroundColor: '#039be5'
+    },
+    headerTitleStyle: {
+      fontFamily: 'Kalam-Bold',
+      fontWeight: '200'
     }
   }
 
   render () {
     const {navigate} = this.props.navigation
     return (
-      <View style={styles.container}>
-        <Image source={require('../assets/icons/png/cards.png')}/>
-        <Text style={styles.welcome}>
-          Bienvenue sur Margaux!
-        </Text>
-        <Text style={styles.instructions}>
-          Pour jouer, cliquez sur le bouton ci-dessous.
-        </Text>
-        <Button onPress={() => navigate('GameSetup')} title="Nouvelle partie" color="#1976d2" accessibilityLabel="Nouvelle partie"/>
-        <Text style={styles.instructions}>
-          Vous serez invité à configurer votre partie.{'\n'}
-          Définissez le nombre de joueurs et le nombre de cartes allouées aux joueurs.
-        </Text>
-      </View>
+      <ScrollView contentContainerStyle={{flexGrow: 1}}>
+        <View style={styles.container}>
+          <View style={{flexGrow: 1, justifyContent: 'center'}}>
+            <Text style={{fontFamily: 'Kalam-Bold', fontSize: 50, color: 'white'}}>Margaux</Text>
+          </View>
+          <View style={{flexGrow: 1}}>
+            <Button
+              backgroundColor='#039be5'
+              fontFamily='Kalam-Bold'
+              fontSize={30}
+              buttonStyle={{borderRadius: 100, margin: 0, padding: 30}}
+              title='Nouvelle partie'
+              onPress={() => navigate('GameSetup')}/>
+          </View>
+        </View>
+      </ScrollView>
     )
   }
 }
@@ -39,9 +47,9 @@ export default class HomeView extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#f5f5f6'
+    justifyContent: 'center',
+    backgroundColor: '#01579b'
   },
   welcome: {
     fontSize: 20,
